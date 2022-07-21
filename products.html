@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>	
+	<title>e-commerce</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="e-commerce">
+	<meta name="doneBy" content="gmarionahuel">
+	<link rel="icon" href="https://placekitten.com/10/10">
+	<link rel="stylesheet" href="font.css">
+	<link rel="stylesheet" type="text/css" href="products.css">
+</head>
+
+
+
+<body>
+<header>
+ 	<div class="header">
+            <a class="logo" href="index.html"><img src="https://placekitten.com/179/60" alt="Logo de Ciag.ar"></a>	 
+            <div class="displayMenu">
+                <img class="mediaMenu" src="" alt="ícono menú">       <!--para agregar botón y achicar el header, de ser necesario para resolución celular-->
+            </div>    
+            <ul class="menu">
+                <li><a href="#">Inicio</a></li>
+                <li class="select"><a href="#">Productos</a></li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Envios</a></li>
+                <img class="carrito" onclick="verCarrito();" src="imagenes/carrito.png" alt="Carrito de compras">
+            </ul>
+        </div>  
+    </div>    
+</header>
+
+<div class="body">
+
+    
+    <div class="popupAddproduct" id="popupModified">
+        <p>Se agregó 1 elemento al carrito</p>
+    </div>
+    <div class="popupAddproduct" id="popupAdded">
+    <p>Producto agregado al carrito</p>
+    </div>
+  
+    <!--                Carrito de compras              -->
+
+    <div id="ventanaCarrito" class="ventanaCarrito">
+        <table class="tablaCarrito">
+            <thead>
+              <tr id="cartHead">  
+                <td style="font-weight: 600;">Producto</td>
+                <td style="font-weight: 600;">Cantidad</td>
+                <td style="font-weight: 600;">Precio</td>
+                <td style="font-weight: 600;">Subtotal</td>
+            </tr>    
+            </thead>
+            <div class="line"></div>
+            <tbody class="productosCarrito" id="productosCarrito">
+                <!--       Productos agregados al carrito  
+                    <tr class="productoCarrito">
+                    <td><p id="nombre" class="nombre">'+itemName+'</p></td>
+                    <td><input type="number" id="cantidadInput"class="cantidad" value="1"></td>
+                    <td><p id="precio" class="precio">'+itemPrice+'</p></td>
+                    <td><p class="subtotal"></p></td>   
+                    <td><button id ="buttonDelete" class="btn btn-danger buttonDelete" type="button">X</button></td>
+                     
+                </tr>    -->
+                        
+                        <div class="line"></div>   
+            </tbody> 
+            
+
+        </table>
+        <br>
+        <table class="totalTable">
+        <tr class="totalRow">
+            <td><p style="font-weight: 800;">Total</p> </td>
+            <td><p id="total" style="font-weight: 600;" class="total"></p> </td>
+
+        </tr>
+        </table>
+        
+        <br>
+<div class="line"></div>
+        </section>
+        <br>
+        <section class="botonesCarrito">
+            <p class="btnCerrarCarrito" onclick="ocultarCarrito();">Ocultar carrito</p>
+            <a id="btnComprar" href="#" target="_blank"><button class="buyBtn" onclick="leePedido();">Continuar compra</button></a>
+        </section>
+    </div>
+        <!--                Titulos             -->
+
+    </div>    
+<div class="titulos">
+    <div class="lupa" id="lupa">
+        <img src="https://png.pngtree.com/png-clipart/20190921/original/pngtree-search-icon-png-image_4699282.jpg" onclick="verBuscador()" alt="icono de búsqueda" id="btnOpenSearch" class="btnOpenSearch">
+    </div>
+    <div class="searchBar" id="searchBar">  
+        <div class="buscador">
+            <input type="text"  pattern="[a-z]{1,15}" placeholder="ingrese producto o categoria" class="inputSearch" id="inputSearch">
+            <img src="https://png.pngtree.com/png-clipart/20190921/original/pngtree-search-icon-png-image_4699282.jpg" onclick="buscar();" alt="icono de búsqueda" id="btnSearch" class="btnSearch">
+        </div>    
+        <span class="closeSearch" onclick="refrescaBusqueda()"">X</span>
+    </div>
+
+    <h1 class="title">Productos</h1>
+
+    <div class="filtrarDiv"><h3 class="subtitle__category" style="margin-left: 2.5%;">Filtrar por categorias<img onclick="verFiltros();" class="btnCategories" src="imagenes/filtrar.png" alt="ver categorias"></h3></div>
+    <p id="resultadoBusqueda" class="resultadoBusqueda"></p>
+
+    
+</div>
+<div class="container">
+
+    <!--                Lista de categorias             -->
+    
+    <div class="category__list">
+        <a id="all" class="category__item" category="all">Todo</a>
+        <a class="category__item" category="anestesia">Anestesia</a>
+        <a class="category__item" category="blanqueamiento">Blanqueador</a>
+        <a class="category__item" category="cementacion">Cementacion</a>
+        <a class="category__item" category="descartable">Descartable</a>
+        <a class="category__item" category="endodoncia">Endodoncia</a>
+        <a class="category__item" category="implantes">Implantes</a>
+        <a class="category__item" category="equipamiento">Equipamiento</a>
+        <a class="category__item" category="instrumental">Instrumental</a>
+        <a class="category__item" category="ionomero">Ionomeros</a>
+        <a class="category__item" category="laboratorio">Laboratorio</a>
+        <a class="category__item" category="impresion">Impresion</a>
+        <a class="category__item" category="medicamento">Medicamentos</a>
+        <a class="category__item" category="operatoria">Operatoria</a>
+        <a class="category__item" category="ortodoncia">Ortodoncia</a>
+        <a class="category__item" category="varios">Varios</a>
+        
+    
+    
+    
+    </div>
+
+    <div class="category__listMedia" id="category__listMedia" >
+        <a id="all" class="category__item" category="all">Todo</a>
+        <a class="category__item" category="anestesia">Anestesia</a>
+        <a class="category__item" category="blanqueamiento">Blanqueador</a>
+        <a class="category__item" category="cementacion">Cementacion</a>
+        <a class="category__item" category="descartable">Descartable</a>
+        <a class="category__item" category="endodoncia">Endodoncia</a>
+        <a class="category__item" category="implantes">Implantes</a>
+        <a class="category__item" category="equipamiento">Equipamiento</a>
+        <a class="category__item" category="instrumental">Instrumental</a>
+        <a class="category__item" category="ionomero">Ionomeros</a>
+        <a class="category__item" category="laboratorio">Laboratorio</a>
+        <a class="category__item" category="impresion">Impresion</a>
+        <a class="category__item" category="medicamento">Medicamentos</a>
+        <a class="category__item" category="operatoria">Operatoria</a>
+        <a class="category__item" category="ortodoncia">Ortodoncia</a>
+        <a class="category__item" category="varios">Varios</a>
+        
+    
+    
+    
+    </div>
+    <!--Catálogo de productos-->
+
+    <div class="product__list">
+        <!--Producto 1-->
+        <div class="product__item operatoria todo" category="operatoria">
+            <img class="image" src="https://placekitten.com/225/225" alt="">
+            <p class="price">$1000</p>
+            <p class="description">One Coat Bond 5ml</p>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 2-->
+        <div class="product__item anestesia todo" category="anestesia">
+            <img class="imagen" src="https://placekitten.com/225/225" alt="">
+            <p class="price">$400</p>
+            <section class="description">Totalcaina Forte x50</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 3-->
+         <div class="product__item anestesia todo" category="anestesia">
+            <img class="imagen" src="https://placekitten.com/225/225" alt="">
+            <p class="price">$1500</p>
+            <section class="description">Anescart Forte</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 4-->
+        <div class="product__item blanqueador todo" category="blanqueador">
+            <img class="imagen" src="https://placekitten.com/225/225" alt="">
+            <p class="price">$900</p>
+            <section class="description">Polaoffice</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 5-->
+        <div class="product__item blanqueador todo" category="blanqueador">
+            <img class="imagen" src="https://placekitten.com/225/225" alt="">
+            <p class="price">$200</p>
+            <section class="description">Blanqueador Opalescense</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 6-->
+         <div class="product__item cementacion todo" category="cementacion">
+            <img class="imagen" src="https://placekitten.com/225/225" alt="">
+            <p class="price">$625</p>
+            <section class="description">Smart cem</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 7-->
+         <div class="product__item cementacion todo" category="cementacion">
+            <img class="imagen" src="https://placekitten.com/225/225" alt="">
+            <p class="price">$420</p>
+            <section class="description">Cemento grossman Endo G Fill</section>
+            <button  class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 8-->
+         <div class="product__item descartable todo" category="descartable">
+            <img class="imagen" src="https://placekitten.com/225/225" alt="">
+            <p class="price">$420</p>
+            <section class="description">Barbijos tricapa x50 u</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        
+         <!--Producto 9-->
+         <div class="product__item descartable todo" category="descartable">
+            <img src="https://placekitten.com/225/225" alt="">
+            <p class="price">$420</p>
+            <section class="description">Guantes de latex x100</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+          <!--Producto 10-->
+          <div class="product__item endodoncia todo" category="endodoncia">
+            <img src="https://placekitten.com/225/225" alt="">
+            <p class="price">$520</p>
+            <section class="description">Limas K 1º serie</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+          <!--Producto 11-->
+          <div class="product__item endodoncia todo" category="endodoncia">
+            <img src="https://placekitten.com/225/225" alt="">
+            <p class="price">$889</p>
+            <section class="description">Conos de gutta</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+          <!--Producto 12-->
+          <div class="product__item ionomero todo" category="ionomero">
+            <img src="https://placekitten.com/225/225" alt="">
+            <p class="price">$1000</p>
+            <section class="description">Glass liner base</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+          <!--Producto 13-->
+          <div class="product__item ionomero todo" category="ionomero">
+            <img src="https://placekitten.com/225/225" alt="">
+            <p class="price">$235</p>
+            <section class="description">Ionómero Ketac-cem</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 14-->
+         <div class="product__item laboratorio todo" category="laboratorio">
+            <img src="https://placekitten.com/225/225" alt="">
+            <p class="price">$76</p>
+            <section class="description">Yeso blanco x 3kg</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 15-->
+         <div class="product__item laboratorio todo" category="laboratorio">
+            <img src="https://placekitten.com/225/225" alt="">
+            <p class="price">$55</p>
+            <section class="description">Cera rosa x 100g </section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 16-->
+         <div class="product__item impresion todo" category="impresion">
+            <img src="https://placekitten.com/225/225" alt="">
+            <p class="price">$150</p>
+            <section class="description">Alginato Cavex ortho </section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 17-->
+         <div class="product__item impresion todo" category="impresion">
+            <img src="https://placekitten.com/225/225" alt="">
+            <p class="price">$98</p>
+            <section class="description">Speedex masa </section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 18-->
+        <div class="product__item impresion todo" category="impresion">
+            <img src="https://placekitten.com/225/225" alt="">
+            <p class="price">$3655</p>
+            <section class="description">Edta-c </section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 19-->
+        <div class="product__item impresion todo" category="impresion">
+            <img src="https://placekitten.com/225/225" alt="">
+            <p class="price">$1540</p>
+            <section class="description">Iodoformo </section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 20-->
+        <div class="product__item operatoria todo" category="operatoria">
+            <img src="https://placekitten.com/225/225" alt="">
+            <p class="price">$235</p>
+            <section class="description">Monobond</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 21-->
+        <div class="product__item ortodoncia todo" category="ortodoncia">
+            <img src="https://placekitten.com/225/225" alt="">
+            <p class="price">$115</p>
+            <section class="description">Arcos de NITI</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 22-->
+        <div class="product__item ortodoncia todo" category="ortodoncia">
+            <img src="https://placekitten.com/225/225" alt="">
+            <p class="price">$487</p>
+            <section class="description">Bastones de ligadura</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+           <!--Producto 23-->
+           <div class="product__item varios todo" category="varios">
+            <img src="https://placekitten.com/225/225" alt="">
+            <p class="price">$590</p>
+            <section class="description">Lubricante Maquira</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+           <!--Producto 24-->
+           <div class="product__item varios todo" category="varios">
+            <img src="https://placekitten.com/225/225" alt="">
+            <p class="price">$2500</p>
+            <section class="description">Novacid</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        
+        
+    </div>  
+
+</div>
+</div>
+
+<footer>
+    <div class="footer">
+        <p> Desarrollado por gmarionahuel. Contacto: gmarionahuel@gmail.com</p> 
+        <p> Twitter @ggmarionahuel GitHub @gmarionahuel</p>
+    </div>
+</footer>
+<script src="products.js"></script>
+</body>
