@@ -7,8 +7,5 @@ App responsive hecha con JavaScript , que cuenta con catálogo de productos, bar
 Responsive app made with javaScript, which contains a product catalog, filter bar, popUp search by text, shop cart with "buy" button with an event listener by click event, that launches a function that show an output by console with name, price, subtotal and quantity of all shop cart's items.
 The output's format is [name of product] [$price] [subtotal] [#quantity] . . [TOTAL:] [$total]
 
-Cualquier comentario / Comments
 
-Twitter @ggmarionahuel gmarionahuel@gmail.com
 
-Gracias por leer
