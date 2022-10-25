@@ -97,7 +97,7 @@ function leePedido(){
     }      
     
     let pedido = mensaje +' Total: '+innerTotal;
-    console.log(pedido);          //  Muestro pedido  FORMATO  [Nombre del produto] [$Precio] [Cantidad] [Subtotal] ... [Total:] [$Total]                     
+            //  Muestro pedido  FORMATO  [Nombre del produto] [$Precio] [Cantidad] [Subtotal] ... [Total:] [$Total]                     
 }
 
 
@@ -163,7 +163,7 @@ function filtrar(event){
  }
 }
 
-console.log("e-commerce desarrollado por gmarionahuel@gmail.com GitHub @gmarionahuel Twitter @ggmarionahuel.")
+console.log("desarrollado por gmarionahuel@gmail.com")
    
 function refrescaBusqueda(){
     document.getElementById('searchBar').style.display= "none"; //esconde buscador 
@@ -181,11 +181,7 @@ function verBuscador(){
 
 
 
-/*Desarrollado por gmarionahuel, gmarionahuel@gmail.com GitHub @gmarionahuel Twitter@gmarionahuel
 
-    Software de uso libre, no permitida la venta de este producto.
-    Si alguien te vendió este software, o queres dejarme cualquier comentario, dejamelo saber en los medios mencionados arriba
-*/ 
 
 
 function verFiltros(){
